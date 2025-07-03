@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Star, Crown, Shield, Truck, Heart } from 'lucide-react'
-import { Product } from '../lib/supabase'
 import { getFeaturedProducts } from '../lib/database'
 import ProductCard from '../components/ProductCard'
 
-const Home: React.FC = () => {
-  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([])
+const Home = () => {
+  const [featuredProducts, setFeaturedProducts] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

@@ -28,7 +28,7 @@ This guide will help you set up your Supabase database and connect it to the DEE
 
 2. **Copy Your Credentials**
    - **Project URL**: Copy the URL (looks like `https://xrftkldyqorduxbbjpof.supabase.co`)
-   - **Anon Key**: Copy the anon/public key (starts with `eyJ...`)
+   - **Anon Key**: Copy the anon/public key (starts with `e...`)
 
 3. **Update Your Project**
    - Open `src/lib/supabase.ts` in your project

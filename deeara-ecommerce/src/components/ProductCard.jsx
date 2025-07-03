@@ -2,21 +2,18 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Heart, ShoppingBag, Eye } from 'lucide-react'
-import { Product } from '../lib/supabase'
 import { useCart } from '../contexts/CartContext'
 import { useAuth } from '../contexts/AuthContext'
 import toast from 'react-hot-toast'
+import { useCurrency } from '../contexts/CurrencyContext'
 
-interface ProductCardProps {
-  product: Product
-}
-
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [selectedSize, setSelectedSize] = useState(product.sizes[0] || 'M')
   const [selectedColor, setSelectedColor] = useState(product.colors[0] || 'Black')
   const { addToCart } = useCart()
   const { user } = useAuth()
+  const { symbol, rate } = useCurrency()
 
   const handleAddToCart = async () => {
     if (!user) {
@@ -85,7 +82,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Product Info */}
       <div className="p-6">
         <Link to={`/product/${product.id}`}>
-          <h3 className="text-lg font-playfair font-semibold text-deep-mauve mb-2 hover:text-gold transition-colors">
+          <h3 className="text-m font-playfair font-semibold text-deep-mauve mb-2 hover:text-gold transition-colors">
             {product.name}
           </h3>
         </Link>
@@ -138,7 +135,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Price and Add to Cart */}
         <div className="flex items-center justify-between">
           <div className="text-gold font-bold text-xl">
-            ${product.price}
+            {symbol}{(product.price * rate).toFixed(2)}
           </div>
           <motion.button
             onClick={handleAddToCart}

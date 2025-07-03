@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Instagram, Facebook, Twitter, Mail, Phone, MapPin } from 'lucide-react'
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <footer className="bg-white border-t border-champagne">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
             
             <div className="flex space-x-4">
               <motion.a
-                href="https://instagram.com"
+                href="https://www.instagram.com/deeara_fs/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-champagne text-white rounded-full hover:bg-gold transition-colors"

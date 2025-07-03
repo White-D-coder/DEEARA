@@ -1,20 +1,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { CartItem, Product, supabase } from '../lib/supabase'
+import { supabase } from '../lib/supabase'
 import { useAuth } from './AuthContext'
 import toast from 'react-hot-toast'
 
-interface CartContextType {
-  cartItems: CartItem[]
-  loading: boolean
-  addToCart: (product: Product, quantity: number, size: string, color: string) => Promise<void>
-  removeFromCart: (itemId: string) => Promise<void>
-  updateQuantity: (itemId: string, quantity: number) => Promise<void>
-  clearCart: () => Promise<void>
-  getCartTotal: () => number
-  getCartCount: () => number
-}
-
-const CartContext = createContext<CartContextType | undefined>(undefined)
+const CartContext = createContext(undefined)
 
 export const useCart = () => {
   const context = useContext(CartContext)
@@ -24,8 +13,8 @@ export const useCart = () => {
   return context
 }
 
-export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([])
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([])
   const [loading, setLoading] = useState(true)
   const { user } = useAuth()
 
@@ -60,7 +49,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }
 
-  const addToCart = async (product: Product, quantity: number, size: string, color: string) => {
+  const addToCart = async (product, quantity, size, color) => {
     if (!user) {
       toast.error('Please sign in to add items to cart')
       return
@@ -103,7 +92,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }
 
-  const removeFromCart = async (itemId: string) => {
+  const removeFromCart = async (itemId) => {
     try {
       const { error } = await supabase
         .from('cart_items')
@@ -120,7 +109,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }
 
-  const updateQuantity = async (itemId: string, quantity: number) => {
+  const updateQuantity = async (itemId, quantity) => {
     if (quantity <= 0) {
       await removeFromCart(itemId)
       return

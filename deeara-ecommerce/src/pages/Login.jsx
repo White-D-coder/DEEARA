@@ -5,7 +5,7 @@ import { Mail, Lock, Eye, EyeOff, Crown } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 import toast from 'react-hot-toast'
 
-const Login: React.FC = () => {
+const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
@@ -17,10 +17,9 @@ const Login: React.FC = () => {
   const { signIn, signUp, signInWithGoogle } = useAuth()
   const navigate = useNavigate()
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-
     try {
       if (isSignUp) {
         const { error } = await signUp(formData.email, formData.password, formData.fullName)
@@ -32,7 +31,7 @@ const Login: React.FC = () => {
         toast.success('Welcome back!')
         navigate('/')
       }
-    } catch (error: any) {
+    } catch (error) {
       toast.error(error.message || 'Authentication failed')
     } finally {
       setLoading(false)
@@ -43,18 +42,18 @@ const Login: React.FC = () => {
     try {
       const { error } = await signInWithGoogle()
       if (error) throw error
-    } catch (error: any) {
+    } catch (error) {
       toast.error(error.message || 'Google sign-in failed')
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-ivory via-cream to-beige flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-sugar">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-md w-full space-y-8"
+        transition={{ duration: 1, ease: 'easeOut' }}
+        className="max-w-lg w-full mx-auto p-12 rounded-glass shadow-soft space-y-10 bg-bisque/60"
       >
         {/* Header */}
         <div className="text-center">
@@ -62,14 +61,14 @@ const Login: React.FC = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto h-16 w-16 bg-gold rounded-full flex items-center justify-center mb-6"
+            className="mx-auto h-20 w-20 bg-pistachio text-espresso rounded-full flex items-center justify-center mb-8 shadow-soft"
           >
-            <Crown className="h-8 w-8 text-white" />
+            <Crown className="h-10 w-10" />
           </motion.div>
-          <h2 className="text-3xl font-cinzel font-bold text-deep-mauve">
+          <h2 className="text-4xl font-serif font-bold text-mocha mb-2">
             {isSignUp ? 'Join the Royalty' : 'Welcome Back'}
           </h2>
-          <p className="mt-2 text-gray-600 font-inter">
+          <p className="mt-2 text-wheat font-sans text-lg">
             {isSignUp ? 'Create your exclusive account' : 'Sign in to your account'}
           </p>
         </div>
@@ -79,13 +78,13 @@ const Login: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8 space-y-6"
+          className="space-y-8"
           onSubmit={handleSubmit}
         >
-          <div className="space-y-4">
+          <div className="space-y-6">
             {isSignUp && (
               <div>
-                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="fullName" className="block text-base font-medium text-wheat mb-2">
                   Full Name
                 </label>
                 <div className="relative">
@@ -96,19 +95,18 @@ const Login: React.FC = () => {
                     required={isSignUp}
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full px-4 py-3 border border-champagne rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white/80"
+                    className="w-full px-4 py-3 border border-wheat/40 rounded-glass bg-sugar text-mocha placeholder-wheat focus:outline-none focus:ring-2 focus:ring-pistachio focus:border-pistachio font-sans"
                     placeholder="Enter your full name"
                   />
                 </div>
               </div>
             )}
-
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-base font-medium text-wheat mb-2">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+                <Mail className="absolute left-4 top-4 h-5 w-5 text-pistachio" />
                 <input
                   id="email"
                   name="email"
@@ -116,18 +114,17 @@ const Login: React.FC = () => {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 border border-champagne rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white/80"
+                  className="w-full pl-12 pr-4 py-3 border border-wheat/40 rounded-glass bg-sugar text-mocha placeholder-wheat focus:outline-none focus:ring-2 focus:ring-pistachio focus:border-pistachio font-sans"
                   placeholder="Enter your email"
                 />
               </div>
             </div>
-
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="password" className="block text-base font-medium text-wheat mb-2">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+                <Lock className="absolute left-4 top-4 h-5 w-5 text-pistachio" />
                 <input
                   id="password"
                   name="password"
@@ -135,48 +132,45 @@ const Login: React.FC = () => {
                   required
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className="w-full pl-10 pr-12 py-3 border border-champagne rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white/80"
+                  className="w-full pl-12 pr-12 py-3 border border-wheat/40 rounded-glass bg-sugar text-mocha placeholder-wheat focus:outline-none focus:ring-2 focus:ring-pistachio focus:border-pistachio font-sans"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600"
+                  className="absolute right-4 top-4 text-wheat hover:text-pistachio"
                 >
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
             </div>
           </div>
-
           <div>
             <motion.button
               type="submit"
               disabled={loading}
-              className="w-full btn-primary py-3 text-lg font-medium"
-              whileHover={{ scale: 1.02 }}
+              className="w-full bg-pistachio text-espresso py-4 text-lg font-semibold rounded-glass shadow-soft hover:bg-wheat hover:text-espresso transition font-serif"
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
               {loading ? 'Processing...' : (isSignUp ? 'Create Account' : 'Sign In')}
             </motion.button>
           </div>
-
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-champagne" />
+              <hr className="w-full border-t border-wheat opacity-30" />
             </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-gradient-to-br from-ivory via-cream to-beige text-gray-500">
+            <div className="relative flex justify-center text-base">
+              <span className="px-4 bg-bisque/60 text-wheat rounded-xl">
                 Or continue with
               </span>
             </div>
           </div>
-
           <motion.button
             type="button"
             onClick={handleGoogleSignIn}
-            className="w-full flex items-center justify-center px-4 py-3 border border-champagne rounded-lg bg-white hover:bg-gray-50 transition-colors"
-            whileHover={{ scale: 1.02 }}
+            className="w-full flex items-center justify-center px-4 py-4 border-2 border-pistachio text-pistachio rounded-glass text-lg font-semibold hover:bg-pistachio hover:text-espresso transition font-serif"
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
             <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
@@ -199,12 +193,11 @@ const Login: React.FC = () => {
             </svg>
             Continue with Google
           </motion.button>
-
           <div className="text-center">
             <button
               type="button"
               onClick={() => setIsSignUp(!isSignUp)}
-              className="text-gold hover:text-deep-mauve transition-colors font-medium"
+              className="text-wheat hover:text-pistachio transition-colors font-semibold mt-4"
             >
               {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
             </button>
