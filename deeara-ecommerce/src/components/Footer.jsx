@@ -15,9 +15,14 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-2xl font-cinzel font-bold text-gradient">
-                DEEARA
-              </h3>
+              <Link to="/" className="inline-block">
+                <img
+                  src="/logo.png"
+                  alt="DEEARA Logo"
+                  className="h-20 w-auto"
+                  style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.08))' }}
+                />
+              </Link>
               <p className="text-gray-600 mt-2 font-inter">
                 Oversized Royalty. Crafted Exclusively.
               </p>
@@ -123,19 +128,9 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gold" />
-                <span className="text-gray-600 font-inter">hello@deeara.com</span>
+                <span className="text-gray-600 font-inter">deearafs@gmail.com</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-gold" />
-                <span className="text-gray-600 font-inter">+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-gold mt-1" />
-                <span className="text-gray-600 font-inter">
-                  123 Luxury Avenue<br />
-                  Fashion District, NY 10001
-                </span>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -144,7 +139,7 @@ const Footer = () => {
         <div className="border-t border-champagne mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-600 font-inter text-sm">
-              © 2025 DEEARA. A Luxury Label. All rights reserved.
+              © 2025 DEEARA. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-600 hover:text-gold transition-colors font-inter">

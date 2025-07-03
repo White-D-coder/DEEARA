@@ -16,16 +16,7 @@ const Navbar = () => {
   const { currency, symbol, setCurrency } = useCurrency()
   const [showCurrency, setShowCurrency] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
-  const availableCurrencies = [
-    { code: 'USD', label: 'US Dollar', symbol: '$' },
-    { code: 'EUR', label: 'Euro', symbol: '€' },
-    { code: 'GBP', label: 'British Pound', symbol: '£' },
-    { code: 'INR', label: 'Indian Rupee', symbol: '₹' },
-    { code: 'JPY', label: 'Japanese Yen', symbol: '¥' },
-    { code: 'AUD', label: 'Australian Dollar', symbol: 'A$' },
-    { code: 'CAD', label: 'Canadian Dollar', symbol: 'C$' },
-    { code: 'CNY', label: 'Chinese Yuan', symbol: '¥' },
-  ]
+ 
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -42,7 +33,14 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-sugar border-b border-bisque/60 shadow-soft sticky top-0 z-50">
+    <nav
+      className={`border-b border-bisque/70 shadow-soft sticky top-0 z-50 transition-all duration-300 ${
+        typeof window !== "undefined" && window.scrollY > 10
+          ? "bg-sugar/100 backdrop-blur-md"
+          : "bg-sugar"
+      }`}
+      onScrollCapture={() => {}} // dummy to avoid React warning
+    >
       <div className="px-8">
         <div className="flex justify-between items-left h-24">
           {/* Menu Button (Desktop) */}
@@ -77,7 +75,7 @@ const Navbar = () => {
                 {!showSearch ? (
                   <button
                     type="button"
-                    className="p-2 text-pistachio hover:text-espresso transition-colors"
+                    className="p-2 text-wheat hover:text-espresso transition-colors"
                     onClick={() => setShowSearch(true)}
                     aria-label="Open search"
                   >
@@ -105,26 +103,8 @@ const Navbar = () => {
                   </motion.form>
                 )}
               </div>
-              <button
-                className="p-2 text-wheat hover:text-pistachio transition-colors flex items-center gap-1"
-                onClick={() => setShowCurrency((v) => !v)}
-                aria-label="Change currency"
-              >
-                <DollarSign className="h-5 w-5" />
-              </button>
-              {showCurrency && (
-                <div className="absolute right-0 mt-2 w-48 bg-sugar rounded-glass shadow-soft border border-bisque/60 py-2 z-50">
-                  {availableCurrencies.map((c) => (
-                    <button
-                      key={c.code}
-                      onClick={() => { setCurrency(c.code); setShowCurrency(false) }}
-                      className={`block w-full text-left px-4 py-2 text-sm hover:bg-bisque/40 hover:text-espresso transition-colors rounded-xl ${currency === c.code ? 'bg-bisque/30 text-pistachio font-bold' : 'text-mocha'}`}
-                    >
-                      {c.symbol} {c.label}
-                    </button>
-                  ))}
-                </div>
-              )}
+                  
+  
             </div>
             {/* Wishlist */}
             <Link to="/wishlist" className="p-2 text-wheat hover:text-pistachio transition-colors relative">
@@ -182,6 +162,8 @@ const Navbar = () => {
                           </div>
                           <div className="text-sm text-wheat mb-4 style={{ fontFamily: 'Alumni Sans Pinstripe, sans-serif' }}">{user.email}</div>
                         </div>
+                        <button className="block w-full text-left px-4 py-3 text-base text-pistachio hover:bg-bisque/40 hover:text-espresso transition-colors text-optima rounded-xl mt-8">My Orders
+                        </button>
                         <button
                           onClick={() => { handleSignOut(); setShowProfile(false) }}
                           className="block w-full text-left px-4 py-3 text-base text-pistachio hover:bg-bisque/40 hover:text-espresso transition-colors rounded-xl font-bold mt-8"

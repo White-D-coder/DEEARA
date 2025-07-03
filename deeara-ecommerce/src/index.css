@@ -24,7 +24,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lancelot', 'Optima', system-ui, serif, sans-serif;
+    font-family: 'Optima', system-ui, serif, sans-serif;
+    font-size: 32px;
     font-weight: 400;
     letter-spacing: 0.04em;
     line-height: 1.2;

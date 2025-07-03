@@ -1,5 +1,25 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Mail, Instagram, Facebook } from 'lucide-react'
+
+const CONTACTS = [
+  {
+    label: 'Email',
+    value: 'contact deeara',
+    href: 'mailto:deearafs@gmail.com',
+    icon: Mail,
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/deeara_fs/',
+    icon: Instagram,
+  },
+  {
+    label: 'Facebook',
+    href: 'https://facebook.com/deeara.official',
+    icon: Facebook,
+  },
+]
 
 const Contact = () => {
   return (
@@ -10,12 +30,27 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-4xl font-serif font-bold text-mocha mb-4">
+          <h1 className="text-4xl font-bold mb-4 text-mocha" style={{ fontFamily: 'Optima, system-ui, serif' }}>
             Contact Us
           </h1>
-          <p className="text-xl text-wheat font-sans">
-            Contact form and information coming soon...
+          <p className="text-lg text-wheat mb-8">
+            We'd love to hear from you! Reach out to us via any of the channels below.
           </p>
+          <div className="flex flex-col gap-8 items-center">
+            {CONTACTS.map(({ label, value, href, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 px-6 py-4 bg-white/80 rounded-xl shadow transition hover:bg-pistachio/20 hover:scale-105 text-mocha text-lg font-medium w-full max-w-md justify-center"
+              >
+                <Icon className="h-7 w-7 text-pistachio" />
+                <span className="font-bold">{label}:</span>
+                <span className="truncate">{value}</span>
+              </a>
+            ))}
+          </div>
         </motion.div>
       </div>
     </div>
