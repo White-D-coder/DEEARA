@@ -71,104 +71,104 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-sugar section-spacious">
-      <motion.div
+        <motion.div
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
         className="max-w-5xl mx-auto text-center mb-20"
-      >
+        >
         <h1 className="text-4xl font-bold text-mocha mb-4 tracking-wide" style={{ fontFamily: 'Optima, system-ui, serif' }}>
-          Our Collection
-        </h1>
+            Our Collection
+          </h1>
         <p className="text-lg text-wheat mb-2" style={{ fontFamily: 'Optima, system-ui, serif' }}>
-          Discover exclusive oversized pieces crafted for royalty
-        </p>
+            Discover exclusive oversized pieces crafted for royalty
+          </p>
         <div className="h-1 w-16 bg-pistachio mx-auto rounded-full mb-6" />
-      </motion.div>
+        </motion.div>
 
-      {/* Filters and Search */}
+        {/* Filters and Search */}
       <div className="max-w-5xl mx-auto mb-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8 px-4">
         <form className="flex-1 flex items-center bg-bisque/60 rounded-full shadow-soft px-6 py-3">
           <Search className="h-5 w-5 text-pistachio mr-3" />
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={filters.search}
-            onChange={(e) => handleFilterChange('search', e.target.value)}
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  value={filters.search}
+                  onChange={(e) => handleFilterChange('search', e.target.value)}
             className="flex-1 bg-transparent outline-none text-mocha placeholder-wheat text-lg font-medium"
-          />
+                />
         </form>
         <div className="flex flex-wrap gap-4 items-center justify-center">
-          <select
-            value={filters.category}
-            onChange={(e) => handleFilterChange('category', e.target.value)}
+              <select
+                value={filters.category}
+                onChange={(e) => handleFilterChange('category', e.target.value)}
             className="bg-bisque/60 border border-wheat/40 rounded-full px-4 py-2 text-mocha focus:ring-pistachio focus:border-pistachio transition"
-          >
-            <option value="">All Categories</option>
-            <option value="oversized-tshirts">Oversized T-Shirts</option>
-            <option value="limited-edition">Limited Edition</option>
-            <option value="new-arrivals">New Arrivals</option>
-          </select>
-          <select
-            value={filters.priceRange}
-            onChange={(e) => handleFilterChange('priceRange', e.target.value)}
+              >
+                <option value="">All Categories</option>
+                <option value="oversized-tshirts">Oversized T-Shirts</option>
+                <option value="limited-edition">Limited Edition</option>
+                <option value="new-arrivals">New Arrivals</option>
+              </select>
+              <select
+                value={filters.priceRange}
+                onChange={(e) => handleFilterChange('priceRange', e.target.value)}
             className="bg-bisque/60 border border-wheat/40 rounded-full px-4 py-2 text-mocha focus:ring-pistachio focus:border-pistachio transition"
-          >
-            <option value="">All Prices</option>
-            <option value="0-50">Under $50</option>
-            <option value="50-100">$50 - $100</option>
-            <option value="100-200">$100 - $200</option>
-            <option value="200-">$200+</option>
-          </select>
-          <select
-            value={filters.size}
-            onChange={(e) => handleFilterChange('size', e.target.value)}
+              >
+                <option value="">All Prices</option>
+                <option value="0-50">Under $50</option>
+                <option value="50-100">$50 - $100</option>
+                <option value="100-200">$100 - $200</option>
+                <option value="200-">$200+</option>
+              </select>
+              <select
+                value={filters.size}
+                onChange={(e) => handleFilterChange('size', e.target.value)}
             className="bg-bisque/60 border border-wheat/40 rounded-full px-4 py-2 text-mocha focus:ring-pistachio focus:border-pistachio transition"
-          >
-            <option value="">All Sizes</option>
-            <option value="S">Small</option>
-            <option value="M">Medium</option>
-            <option value="L">Large</option>
-            <option value="XL">X-Large</option>
-            <option value="XXL">XX-Large</option>
-          </select>
-          <select
-            value={filters.color}
-            onChange={(e) => handleFilterChange('color', e.target.value)}
+              >
+                <option value="">All Sizes</option>
+                <option value="S">Small</option>
+                <option value="M">Medium</option>
+                <option value="L">Large</option>
+                <option value="XL">X-Large</option>
+                <option value="XXL">XX-Large</option>
+              </select>
+              <select
+                value={filters.color}
+                onChange={(e) => handleFilterChange('color', e.target.value)}
             className="bg-bisque/60 border border-wheat/40 rounded-full px-4 py-2 text-mocha focus:ring-pistachio focus:border-pistachio transition"
-          >
-            <option value="">All Colors</option>
-            <option value="Black">Black</option>
-            <option value="White">White</option>
-            <option value="Navy">Navy</option>
-            <option value="Gray">Gray</option>
-            <option value="Beige">Beige</option>
-            <option value="Champagne">Champagne</option>
-            <option value="Ivory">Ivory</option>
-            <option value="Cream">Cream</option>
-            <option value="Royal Blue">Royal Blue</option>
-            <option value="Deep Mauve">Deep Mauve</option>
-            <option value="Burgundy">Burgundy</option>
+              >
+                <option value="">All Colors</option>
+                <option value="Black">Black</option>
+                <option value="White">White</option>
+                <option value="Navy">Navy</option>
+                <option value="Gray">Gray</option>
+                <option value="Beige">Beige</option>
+                <option value="Champagne">Champagne</option>
+                <option value="Ivory">Ivory</option>
+                <option value="Cream">Cream</option>
+                <option value="Royal Blue">Royal Blue</option>
+                <option value="Deep Mauve">Deep Mauve</option>
+                <option value="Burgundy">Burgundy</option>
             <option value="Mint">Mint</option>
-          </select>
+              </select>
         </div>
         <div className="flex items-center gap-2 ml-2">
-          <button
-            onClick={() => setViewMode('grid')}
+            <button
+              onClick={() => setViewMode('grid')}
             className={`p-2 rounded-full transition-all duration-200 border ${viewMode === 'grid' ? 'bg-pistachio text-white border-pistachio shadow' : 'bg-white text-pistachio border-wheat/40'}`}
             aria-label="Grid view"
-          >
-            <Grid className="h-5 w-5" />
-          </button>
-          <button
-            onClick={() => setViewMode('list')}
+            >
+              <Grid className="h-5 w-5" />
+            </button>
+            <button
+              onClick={() => setViewMode('list')}
             className={`p-2 rounded-full transition-all duration-200 border ${viewMode === 'list' ? 'bg-pistachio text-white border-pistachio shadow' : 'bg-white text-pistachio border-wheat/40'}`}
             aria-label="List view"
-          >
-            <List className="h-5 w-5" />
-          </button>
+            >
+              <List className="h-5 w-5" />
+            </button>
+          </div>
         </div>
-      </div>
 
       {/* Products Grid/List */}
       <div className={`max-w-7xl mx-auto ${viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12' : 'flex flex-col gap-8'} px-4 pb-24`}>
@@ -182,14 +182,14 @@ const Products = () => {
           </div>
         ) : (
           products.map((product, index) => (
-            <motion.div
-              key={product.id}
+              <motion.div
+                key={product.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-            >
-              <ProductCard product={product} />
-            </motion.div>
+              >
+                <ProductCard product={product} />
+              </motion.div>
           ))
         )}
       </div>

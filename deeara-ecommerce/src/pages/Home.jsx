@@ -5,6 +5,9 @@ import { ArrowRight, Star, Crown, Shield, Truck, Heart } from 'lucide-react'
 import { getFeaturedProducts } from '../lib/database'
 import ProductCard from '../components/ProductCard'
 import Silk from '../components/Backgrounds/Silk/Silk'
+import TextTrail from '../components/TextAnimations/TextTrail/TextTrail'
+import StarBorder from '../components/Animations/StarBorder/StarBorder'
+
 
 
 const Home = () => {
@@ -43,7 +46,8 @@ const Home = () => {
                 className="text-xl text-white md:text-7xl font-bold mb-6"
                 style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, letterSpacing: '0.1em' }}
               >
-                DEEARA
+ 
+                  DEEARA
               </h1>
               <p className="text-xl md:text-2xl font-gothic text-white mb-8">
                 Crafted Exclusively for the Discerning

@@ -24,41 +24,41 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <CurrencyProvider>
-            <div className="min-h-screen bg-ivory">
-              <Toaster
-                position="top-right"
-                toastOptions={{
-                  duration: 4000,
-                  style: {
-                    background: '#fff',
-                    color: '#333',
-                    border: '1px solid #D4AF37',
+          <div className="min-h-screen bg-ivory">
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: '#fff',
+                  color: '#333',
+                  border: '1px solid #D4AF37',
+                },
+                success: {
+                  iconTheme: {
+                    primary: '#D4AF37',
+                    secondary: '#fff',
                   },
-                  success: {
-                    iconTheme: {
-                      primary: '#D4AF37',
-                      secondary: '#fff',
-                    },
-                  },
-                }}
-              />
-              <Navbar />
-              <main className="flex-1">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/products" element={<Products />} />
-                  <Route path="/product/:id" element={<ProductDetail />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route path="/wishlist" element={<Wishlist />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/track-order" element={<TrackOrder />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/feedback" element={<Feedback />} />
-                  <Route path="/payment" element={<Payment />} />
-                </Routes>
-              </main>
-              <Footer />
-            </div>
+                },
+              }}
+            />
+            <Navbar />
+            <main className="flex-1">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/wishlist" element={<Wishlist />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/track-order" element={<TrackOrder />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/feedback" element={<Feedback />} />
+                <Route path="/payment" element={<Payment />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
           </CurrencyProvider>
         </CartProvider>
       </AuthProvider>

@@ -114,7 +114,7 @@
     @apply bg-transparent text-gold px-12 py-6 rounded-none font-bold transition-all duration-700 ease-out border-3 border-gold hover:bg-gold hover:text-black hover:shadow-2xl hover:scale-110 tracking-widest text-lg uppercase font-cinzel;
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
   }
-
+  
   /* ROYAL Card Styles */
   .card-luxury {
     @apply bg-gradient-to-br from-black via-gray-900 to-black rounded-none shadow-2xl hover:shadow-2xl transition-all duration-1000 ease-out border-2 border-gold/30 hover:border-gold/80 backdrop-blur-2xl;
@@ -125,7 +125,7 @@
     @apply bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-none shadow-2xl hover:shadow-2xl transition-all duration-1000 ease-out border-2 border-bronze/40 hover:border-bronze/90 backdrop-blur-3xl;
     box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.9);
   }
-
+  
   /* ROYAL Text Styles */
   .text-gradient {
     @apply bg-gradient-to-r from-gold via-amber-400 via-yellow-300 to-gold bg-clip-text text-transparent;
@@ -141,7 +141,7 @@
     @apply bg-gradient-to-r from-gold via-amber-400 via-yellow-300 via-gold to-amber-400 bg-clip-text text-transparent;
     text-shadow: 0 0 40px rgba(212, 175, 55, 0.7);
   }
-
+  
   /* ULTRA Glass Effects */
   .glass-effect {
     @apply bg-black/60 backdrop-blur-3xl border-2 border-gold/40 shadow-2xl;

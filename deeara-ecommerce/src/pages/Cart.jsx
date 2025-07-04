@@ -73,50 +73,50 @@ const Cart = () => {
                   transition={{ duration: 0.6, delay: index * 0.08 }}
                   className="bg-bisque/60 p-8 rounded-glass flex items-center gap-8 shadow-soft"
                 >
-                  {/* Product Image */}
-                  <img
-                    src={item.product.images[0] || 'https://via.placeholder.com/100x100'}
-                    alt={item.product.name}
+                    {/* Product Image */}
+                    <img
+                      src={item.product.images[0] || 'https://via.placeholder.com/100x100'}
+                      alt={item.product.name}
                     className="w-28 h-28 object-cover rounded-xl border-2 border-pistachio"
-                  />
+                    />
 
-                  {/* Product Details */}
-                  <div className="flex-1">
+                    {/* Product Details */}
+                    <div className="flex-1">
                     <h3 className="text-xl font-serif font-semibold text-mocha mb-2">
-                      {item.product.name}
-                    </h3>
+                        {item.product.name}
+                      </h3>
                     <p className="text-wheat text-base mb-2">
-                      Size: {item.size} | Color: {item.color}
-                    </p>
+                        Size: {item.size} | Color: {item.color}
+                      </p>
                     <p className="text-pistachio font-bold text-lg">
                       {symbol}{(item.product.price * rate).toFixed(2)}
-                    </p>
-                  </div>
+                      </p>
+                    </div>
 
-                  {/* Quantity Controls */}
+                    {/* Quantity Controls */}
                   <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
                       className="p-2 bg-sugar border border-wheat/40 rounded-full text-mocha hover:bg-pistachio hover:text-espresso transition"
-                    >
+                      >
                       <Minus className="h-5 w-5" />
-                    </button>
+                      </button>
                     <span className="w-8 text-center font-medium text-lg">{item.quantity}</span>
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
                       className="p-2 bg-sugar border border-wheat/40 rounded-full text-mocha hover:bg-pistachio hover:text-espresso transition"
-                    >
+                      >
                       <Plus className="h-5 w-5" />
-                    </button>
-                  </div>
+                      </button>
+                    </div>
 
-                  {/* Remove Button */}
-                  <button
-                    onClick={() => removeFromCart(item.id)}
+                    {/* Remove Button */}
+                    <button
+                      onClick={() => removeFromCart(item.id)}
                     className="p-2 bg-sugar border border-wheat/40 rounded-full text-red-500 hover:bg-wheat hover:text-espresso ml-2 transition"
-                  >
-                    <Trash2 className="h-5 w-5" />
-                  </button>
+                    >
+                      <Trash2 className="h-5 w-5" />
+                    </button>
                 </motion.div>
               ))}
 
@@ -152,11 +152,11 @@ const Cart = () => {
                     <span className="font-medium">{symbol}{((getCartTotal() * 0.08) * rate).toFixed(2)}</span>
                   </div>
                   <hr className="border-t border-wheat opacity-30 my-2" />
-                  <div className="flex justify-between">
+                    <div className="flex justify-between">
                     <span className="text-lg font-bold text-mocha">Total</span>
                     <span className="text-lg font-bold text-pistachio">
                       {symbol}{((getCartTotal() * 1.08) * rate).toFixed(2)}
-                    </span>
+                      </span>
                   </div>
                 </div>
 
