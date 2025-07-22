@@ -5,7 +5,7 @@ import { Instagram, Facebook, Twitter, Mail, Phone, MapPin } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-champagne">
+    <footer className="bg-primary-dark border-t border-accent-dark" style={{ fontFamily: 'Poiret One, cursive' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
@@ -23,7 +23,7 @@ const Footer = () => {
                   style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.08))' }}
                 />
               </Link>
-              <p className="text-gray-600 mt-2 font-inter">
+              <p className="text-cta-green mt-1 pt-0 text-xl" style={{ fontFamily: 'Poiret One, cursive' }}>
                 Oversized Royalty. Crafted Exclusively.
               </p>
             </motion.div>
@@ -69,22 +69,22 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-600 hover:text-gold transition-colors font-inter">
+                <Link to="/" className="text-sugar hover:text-gold transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="text-gray-600 hover:text-gold transition-colors font-inter">
+                <Link to="/products" className="text-sugar hover:text-gold transition-colors">
                   Products
                 </Link>
               </li>
               <li>
-                <Link to="/track-order" className="text-gray-600 hover:text-gold transition-colors font-inter">
+                <Link to="/track-order" className="text-sugar hover:text-gold transition-colors">
                   Track Order
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-600 hover:text-gold transition-colors font-inter">
+                <Link to="/contact" className="text-sugar hover:text-gold transition-colors">
                   Contact
                 </Link>
               </li>
@@ -98,22 +98,22 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/feedback" className="text-gray-600 hover:text-gold transition-colors font-inter">
+                <Link to="/feedback" className="text-sugar hover:text-gold transition-colors">
                   Feedback
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gold transition-colors font-inter">
+                <a href="#" className="text-sugar hover:text-gold transition-colors">
                   Size Guide
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gold transition-colors font-inter">
+                <a href="#" className="text-sugar hover:text-gold transition-colors">
                   Shipping Info
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gold transition-colors font-inter">
+                <a href="#" className="text-sugar hover:text-gold transition-colors">
                   Returns & Exchanges
                 </a>
               </li>
@@ -128,7 +128,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gold" />
-                <span className="text-gray-600 font-inter">deearafs@gmail.com</span>
+                <span className="text-sugar">deearafs@gmail.com</span>
               </div>
               
             </div>
@@ -138,21 +138,22 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-champagne mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-600 font-inter text-sm">
+            <p className="text-sugar text-sm">
               © 2025 DEEARA. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-600 hover:text-gold transition-colors font-inter">
+              <a href="#" className="text-sugar hover:text-gold transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-gray-600 hover:text-gold transition-colors font-inter">
+              <a href="#" className="text-sugar hover:text-gold transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-gray-600 hover:text-gold transition-colors font-inter">
+              <a href="#" className="text-sugar hover:text-gold transition-colors">
                 Cookie Policy
               </a>
             </div>
           </div>
+            <div >DEEARA</div>
         </div>
       </div>
     </footer>

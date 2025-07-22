@@ -50,32 +50,32 @@ const ProductCard = ({ product }) => {
         )}
 
         {/* Bottom Overlay with Sugar Background */}
-        <div className="absolute bottom-0 left-0 right-0 bg-sugar/95 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+        <div className="absolute bottom-0 left-0 right-0 bg-soft-bg/95 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
           <div className="space-y-4">
             {/* Product Title */}
-            <h3 className="text-xl font-bold text-mocha" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+            <h3 className="text-xl font-bold text-primary-dark" style={{ fontFamily: 'Optima, system-ui, serif' }}>
               {product.name}
             </h3>
             
             {/* Product Description */}
-            <p className="text-wheat text-sm line-clamp-2" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+            <p className="text-card-bg text-sm line-clamp-2" style={{ fontFamily: 'Optima, system-ui, serif' }}>
               {product.description}
             </p>
             
             {/* Price and Actions */}
             <div className="flex items-center justify-between">
-              <div className="text-pistachio font-bold text-2xl" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+              <div className="text-cta-green font-bold text-2xl" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                 {symbol}{(product.price * rate).toFixed(2)}
               </div>
               <div className="flex items-center space-x-3">
                 <button
-                  className="p-2 bg-white/80 rounded-full shadow hover:bg-pistachio hover:text-white transition-colors"
+                  className="p-2 bg-white/80 rounded-full shadow hover:bg-cta-green hover:text-white transition-colors"
                 >
                   <Heart className="h-4 w-4" />
                 </button>
                 <button
                   onClick={handleAddToCart}
-                  className="flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-semibold bg-pistachio text-espresso shadow-soft hover:bg-wheat hover:text-espresso transition-all duration-300"
+                  className="flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-semibold bg-cta-green text-primary-dark shadow-soft hover:bg-card-bg hover:text-cta-green transition-all duration-300"
                 >
                   <ShoppingBag className="h-4 w-4" />
                   <span>Add</span>

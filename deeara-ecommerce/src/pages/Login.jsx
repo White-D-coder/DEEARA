@@ -48,12 +48,12 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-sugar">
+    <div className="min-h-screen flex items-center justify-center bg-soft-bg">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
-        className="max-w-lg w-full mx-auto p-12 rounded-glass shadow-soft space-y-10 bg-bisque/60"
+        className="max-w-lg w-full mx-auto p-12 rounded-glass shadow-soft space-y-10 bg-card-bg/60"
       >
         {/* Header */}
         <div className="text-center">
@@ -61,14 +61,14 @@ const Login = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto h-20 w-20 bg-pistachio text-espresso rounded-full flex items-center justify-center mb-8 shadow-soft"
+            className="mx-auto h-20 w-20 bg-cta-green text-primary-dark rounded-full flex items-center justify-center mb-8 shadow-soft"
           >
             <Crown className="h-10 w-10" />
           </motion.div>
-          <h2 className="text-4xl font-serif font-bold text-mocha mb-2">
+          <h2 className="text-4xl font-serif font-bold text-primary-dark mb-2">
             {isSignUp ? 'Join the Royalty' : 'Welcome Back'}
           </h2>
-          <p className="mt-2 text-wheat font-sans text-lg">
+          <p className="mt-2 text-card-bg font-sans text-lg">
             {isSignUp ? 'Create your exclusive account' : 'Sign in to your account'}
           </p>
         </div>
@@ -84,7 +84,7 @@ const Login = () => {
           <div className="space-y-6">
             {isSignUp && (
               <div>
-                <label htmlFor="fullName" className="block text-base font-medium text-wheat mb-2">
+                <label htmlFor="fullName" className="block text-base font-medium text-card-bg mb-2">
                   Full Name
                 </label>
                 <div className="relative">
@@ -95,18 +95,18 @@ const Login = () => {
                     required={isSignUp}
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full px-4 py-3 border border-wheat/40 rounded-glass bg-sugar text-mocha placeholder-wheat focus:outline-none focus:ring-2 focus:ring-pistachio focus:border-pistachio font-sans"
+                    className="w-full px-4 py-3 border border-card-bg/40 rounded-glass bg-soft-bg text-primary-dark placeholder-card-bg focus:outline-none focus:ring-2 focus:ring-cta-green focus:border-cta-green font-sans"
                     placeholder="Enter your full name"
                   />
                 </div>
               </div>
             )}
             <div>
-              <label htmlFor="email" className="block text-base font-medium text-wheat mb-2">
+              <label htmlFor="email" className="block text-base font-medium text-card-bg mb-2">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-4 top-4 h-5 w-5 text-pistachio" />
+                <Mail className="absolute left-4 top-4 h-5 w-5 text-cta-green" />
                 <input
                   id="email"
                   name="email"
@@ -114,17 +114,17 @@ const Login = () => {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full pl-12 pr-4 py-3 border border-wheat/40 rounded-glass bg-sugar text-mocha placeholder-wheat focus:outline-none focus:ring-2 focus:ring-pistachio focus:border-pistachio font-sans"
+                  className="w-full pl-12 pr-4 py-3 border border-card-bg/40 rounded-glass bg-soft-bg text-primary-dark placeholder-card-bg focus:outline-none focus:ring-2 focus:ring-cta-green focus:border-cta-green font-sans"
                   placeholder="Enter your email"
                 />
               </div>
             </div>
             <div>
-              <label htmlFor="password" className="block text-base font-medium text-wheat mb-2">
+              <label htmlFor="password" className="block text-base font-medium text-card-bg mb-2">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-4 top-4 h-5 w-5 text-pistachio" />
+                <Lock className="absolute left-4 top-4 h-5 w-5 text-cta-green" />
                 <input
                   id="password"
                   name="password"
@@ -132,13 +132,13 @@ const Login = () => {
                   required
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className="w-full pl-12 pr-12 py-3 border border-wheat/40 rounded-glass bg-sugar text-mocha placeholder-wheat focus:outline-none focus:ring-2 focus:ring-pistachio focus:border-pistachio font-sans"
+                  className="w-full pl-12 pr-12 py-3 border border-card-bg/40 rounded-glass bg-soft-bg text-primary-dark placeholder-card-bg focus:outline-none focus:ring-2 focus:ring-cta-green focus:border-cta-green font-sans"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-4 text-wheat hover:text-pistachio"
+                  className="absolute right-4 top-4 text-card-bg hover:text-cta-green"
                 >
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
@@ -149,7 +149,7 @@ const Login = () => {
             <motion.button
               type="submit"
               disabled={loading}
-              className="w-full bg-pistachio text-espresso py-4 text-lg font-semibold rounded-glass shadow-soft hover:bg-wheat hover:text-espresso transition font-serif"
+              className="w-full bg-cta-green text-primary-dark py-4 text-lg font-semibold rounded-glass shadow-soft hover:bg-card-bg hover:text-cta-green transition font-serif"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -158,10 +158,10 @@ const Login = () => {
           </div>
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <hr className="w-full border-t border-wheat opacity-30" />
+              <hr className="w-full border-t border-card-bg opacity-30" />
             </div>
             <div className="relative flex justify-center text-base">
-              <span className="px-4 bg-bisque/60 text-wheat rounded-xl">
+              <span className="px-4 bg-card-bg/60 text-card-bg rounded-xl">
                 Or continue with
               </span>
             </div>
@@ -169,7 +169,7 @@ const Login = () => {
           <motion.button
             type="button"
             onClick={handleGoogleSignIn}
-            className="w-full flex items-center justify-center px-4 py-4 border-2 border-pistachio text-pistachio rounded-glass text-lg font-semibold hover:bg-pistachio hover:text-espresso transition font-serif"
+            className="w-full flex items-center justify-center px-4 py-4 border-2 border-cta-green text-cta-green rounded-glass text-lg font-semibold hover:bg-cta-green hover:text-primary-dark transition font-serif"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -197,7 +197,7 @@ const Login = () => {
             <button
               type="button"
               onClick={() => setIsSignUp(!isSignUp)}
-              className="text-wheat hover:text-pistachio transition-colors font-semibold mt-4"
+              className="text-card-bg hover:text-cta-green transition-colors font-semibold mt-4"
             >
               {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
             </button>

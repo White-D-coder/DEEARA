@@ -84,15 +84,15 @@ const ProductDetail = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-4xl font-serif font-bold text-mocha mb-4">
+            <h1 className="text-4xl font-serif font-bold text-primary-dark mb-4">
               Product Not Found
             </h1>
-            <p className="text-xl text-wheat font-sans mb-8">
+            <p className="text-xl text-card-bg font-sans mb-8">
               The product you're looking for doesn't exist.
             </p>
             <Link
               to="/products"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-pistachio text-espresso rounded-full font-semibold hover:bg-wheat transition-colors"
+              className="inline-flex items-center space-x-2 px-8 py-4 bg-cta-green text-primary-dark rounded-full font-semibold hover:bg-card-bg transition-colors"
             >
               <ArrowLeft className="h-5 w-5" />
               <span>Back to Products</span>
@@ -115,7 +115,7 @@ const ProductDetail = () => {
         >
           <Link
             to="/products"
-            className="inline-flex items-center space-x-2 text-wheat hover:text-pistachio transition-colors font-medium"
+            className="inline-flex items-center space-x-2 text-card-bg hover:text-cta-green transition-colors font-medium"
           >
             <ArrowLeft className="h-5 w-5" />
             <span>Back to Products</span>
@@ -160,8 +160,8 @@ const ProductDetail = () => {
                     onClick={() => setSelectedImage(index)}
                     className={`w-20 h-20 rounded-2xl overflow-hidden border-2 transition-all duration-200 ${
                       selectedImage === index
-                        ? 'border-pistachio shadow-lg'
-                        : 'border-wheat/40 hover:border-pistachio'
+                        ? 'border-cta-green shadow-lg'
+                        : 'border-card-bg hover:border-cta-green'
                     }`}
                   >
                     <img
@@ -184,27 +184,27 @@ const ProductDetail = () => {
           >
             {/* Product Title and Price */}
             <div>
-              <h1 className="text-4xl font-bold text-mocha mb-4 tracking-wide" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+              <h1 className="text-4xl font-bold text-primary-dark mb-4 tracking-wide" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                 {product.name}
               </h1>
               <div className="flex items-center space-x-4 mb-6">
-                <div className="text-3xl font-bold text-pistachio" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+                <div className="text-3xl font-bold text-cta-green" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                   {symbol}{(product.price * rate).toFixed(2)}
                 </div>
                 {product.original_price && product.original_price > product.price && (
-                  <div className="text-xl text-wheat line-through">
+                  <div className="text-xl text-card-bg line-through">
                     {symbol}{(product.original_price * rate).toFixed(2)}
                   </div>
                 )}
               </div>
-              <p className="text-lg text-wheat leading-relaxed" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+              <p className="text-lg text-card-bg leading-relaxed" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                 {product.description}
               </p>
             </div>
 
             {/* Size Selection */}
             <div>
-              <h3 className="text-lg font-semibold text-mocha mb-4" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+              <h3 className="text-lg font-semibold text-primary-dark mb-4" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                 Select Size
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -214,8 +214,8 @@ const ProductDetail = () => {
                     onClick={() => setSelectedSize(size)}
                     className={`px-6 py-3 rounded-full border-2 transition-all duration-200 font-medium ${
                       selectedSize === size
-                        ? 'border-pistachio bg-pistachio text-white shadow-lg'
-                        : 'border-wheat text-mocha hover:border-pistachio hover:bg-pistachio/10'
+                        ? 'border-cta-green bg-cta-green text-white shadow-lg'
+                        : 'border-card-bg text-primary-dark hover:border-cta-green hover:bg-cta-green/10'
                     }`}
                   >
                     {size}
@@ -226,7 +226,7 @@ const ProductDetail = () => {
 
             {/* Color Selection */}
             <div>
-              <h3 className="text-lg font-semibold text-mocha mb-4" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+              <h3 className="text-lg font-semibold text-primary-dark mb-4" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                 Select Color
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -236,8 +236,8 @@ const ProductDetail = () => {
                     onClick={() => setSelectedColor(color)}
                     className={`px-6 py-3 rounded-full border-2 transition-all duration-200 font-medium ${
                       selectedColor === color
-                        ? 'border-pistachio bg-pistachio text-white shadow-lg'
-                        : 'border-wheat text-mocha hover:border-pistachio hover:bg-pistachio/10'
+                        ? 'border-cta-green bg-cta-green text-white shadow-lg'
+                        : 'border-card-bg text-primary-dark hover:border-cta-green hover:bg-cta-green/10'
                     }`}
                   >
                     {color}
@@ -248,20 +248,20 @@ const ProductDetail = () => {
 
             {/* Quantity Selection */}
             <div>
-              <h3 className="text-lg font-semibold text-mocha mb-4" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+              <h3 className="text-lg font-semibold text-primary-dark mb-4" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                 Quantity
               </h3>
               <div className="flex items-center space-x-4">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-12 h-12 rounded-full border-2 border-wheat text-mocha hover:border-pistachio hover:bg-pistachio/10 transition-colors flex items-center justify-center"
+                  className="w-12 h-12 rounded-full border-2 border-card-bg text-primary-dark hover:border-cta-green hover:bg-cta-green/10 transition-colors flex items-center justify-center"
                 >
                   -
                 </button>
-                <span className="text-xl font-semibold text-mocha w-16 text-center">{quantity}</span>
+                <span className="text-xl font-semibold text-primary-dark w-16 text-center">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-12 h-12 rounded-full border-2 border-wheat text-mocha hover:border-pistachio hover:bg-pistachio/10 transition-colors flex items-center justify-center"
+                  className="w-12 h-12 rounded-full border-2 border-card-bg text-primary-dark hover:border-cta-green hover:bg-cta-green/10 transition-colors flex items-center justify-center"
                 >
                   +
                 </button>
@@ -272,7 +272,7 @@ const ProductDetail = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.button
                 onClick={handleAddToCart}
-                className="flex-1 flex items-center justify-center space-x-3 px-8 py-4 bg-pistachio text-espresso rounded-full font-semibold shadow-soft hover:bg-wheat transition-all duration-300"
+                className="flex-1 flex items-center justify-center space-x-3 px-8 py-4 bg-cta-green text-primary-dark rounded-full font-semibold shadow-soft hover:bg-card-bg hover:text-cta-green transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -280,7 +280,7 @@ const ProductDetail = () => {
                 <span>Add to Cart</span>
               </motion.button>
               <motion.button
-                className="px-8 py-4 border-2 border-wheat text-mocha rounded-full font-semibold hover:border-pistachio hover:bg-pistachio/10 transition-all duration-300"
+                className="px-8 py-4 border-2 border-card-bg text-primary-dark rounded-full font-semibold hover:border-cta-green hover:bg-cta-green/10 transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -290,25 +290,25 @@ const ProductDetail = () => {
 
             {/* Product Features */}
             <div className="bg-bisque/40 rounded-3xl p-6 space-y-4">
-              <h3 className="text-lg font-semibold text-mocha mb-4" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+              <h3 className="text-lg font-semibold text-primary-dark mb-4" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                 Product Features
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-center space-x-3">
-                  <Truck className="h-5 w-5 text-pistachio" />
-                  <span className="text-wheat">Free Shipping</span>
+                  <Truck className="h-5 w-5 text-cta-green" />
+                  <span className="text-card-bg">Free Shipping</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Shield className="h-5 w-5 text-pistachio" />
-                  <span className="text-wheat">Secure Payment</span>
+                  <Shield className="h-5 w-5 text-cta-green" />
+                  <span className="text-card-bg">Secure Payment</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <RotateCcw className="h-5 w-5 text-pistachio" />
-                  <span className="text-wheat">Easy Returns</span>
+                  <RotateCcw className="h-5 w-5 text-cta-green" />
+                  <span className="text-card-bg">Easy Returns</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Star className="h-5 w-5 text-pistachio" />
-                  <span className="text-wheat">Premium Quality</span>
+                  <Star className="h-5 w-5 text-cta-green" />
+                  <span className="text-card-bg">Premium Quality</span>
                 </div>
               </div>
             </div>
@@ -316,19 +316,19 @@ const ProductDetail = () => {
             {/* Additional Info */}
             {product.material && (
               <div>
-                <h3 className="text-lg font-semibold text-mocha mb-2" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+                <h3 className="text-lg font-semibold text-primary-dark mb-2" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                   Material
                 </h3>
-                <p className="text-wheat">{product.material}</p>
+                <p className="text-card-bg">{product.material}</p>
               </div>
             )}
 
             {product.care_instructions && (
               <div>
-                <h3 className="text-lg font-semibold text-mocha mb-2" style={{ fontFamily: 'Optima, system-ui, serif' }}>
+                <h3 className="text-lg font-semibold text-primary-dark mb-2" style={{ fontFamily: 'Optima, system-ui, serif' }}>
                   Care Instructions
                 </h3>
-                <p className="text-wheat">{product.care_instructions}</p>
+                <p className="text-card-bg">{product.care_instructions}</p>
               </div>
             )}
           </motion.div>

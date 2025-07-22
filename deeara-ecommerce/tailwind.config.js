@@ -6,35 +6,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Earthy, Elegant Palette
-        sugar: '#FCF8F0',      // Main background
-        bisque: '#E2D9CD',     // Section backgrounds
-        pistachio: '#B5BDAC',  // Accents, buttons
-        wheat: '#B6A593',      // Text highlights, borders
-        mocha: '#6B5B4D',      // Headlines, strong text
-        espresso: '#392E26',   // CTAs, footer, strong contrast
-        // ULTRA ROYAL Theme
-        'charcoal': '#1A1A1A',
-        'midnight': '#0F0F0F',
-        'obsidian': '#000000',
-        'navy': '#1B2A3A',
-        'burgundy': '#8B1A3A',
-        'emerald': '#0F4C3A',
-        'gold': '#D4AF37',
-        'bronze': '#CD7F32',
-        'platinum': '#E5E4E2',
-        'pearl': '#F8F8FF',
-        'ivory': '#FFFFF0',
-        'champagne': '#F7E7CE',
-        'soft-gold': '#F4E4BC',
-        'deep-gold': '#B8860B',
-        'royal-purple': '#4B0082',
-        'velvet': '#2D1B3D',
-        // Mint green for modern luxury
-        'mint': '#A8FFEB',
-        'mint-dark': '#5FE1C7',
-        'mint-glass': 'rgba(168,255,235,0.25)',
-        'mint-glass-strong': 'rgba(168,255,235,0.45)',
+        // Luxurious Green Palette
+        'primary-dark': '#051F20',      // Headings, navbar, footer
+        'accent-dark': '#0B2B26',       // Hover states, icons, outlines
+        'secondary-bg': '#163832',      // Cards, sections
+        'card-bg': '#235347',           // Card backgrounds, secondary buttons
+        'cta-green': '#8EB69B',         // Primary CTA buttons, highlights, icons
+        'soft-bg': '#DAF1DE',           // Soft backgrounds, section backgrounds
+        'sugar': '#FCF8F0', // Soft off-white background
       },
       fontFamily: {
         serif: ['Playfair Display', 'serif'],
@@ -84,6 +63,9 @@ export default {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'royal-float': 'royalFloat 6s ease-in-out infinite',
         'gold-shimmer': 'goldShimmer 2.5s ease-in-out infinite',
+        'marquee': 'marquee 15s linear infinite',
+        'star-movement-bottom': 'star-movement-bottom 6s linear infinite alternate',
+        'star-movement-top': 'star-movement-top 6s linear infinite alternate',
       },
       keyframes: {
         fadeIn: {
@@ -128,6 +110,18 @@ export default {
             backgroundPosition: '200% center',
             filter: 'brightness(1)'
           },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' }
+        },
+        'star-movement-bottom': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+        },
+        'star-movement-top': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
         },
       },
       transitionTimingFunction: {

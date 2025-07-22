@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,14 +8,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background: #FCF8F0; /* sugar */
+    background: #DAF1DE; /* soft-bg */
     font-family: 'Optima', system-ui, 'Inter', 'Playfair Display', serif, sans-serif;
   }
   
   body {
     font-family: 'Optima', system-ui, 'Inter', 'Playfair Display', serif, sans-serif;
-    background: #FCF8F0; /* sugar */
-    color: #6B5B4D; /* mocha */
+    background: #DAF1DE; /* soft-bg */
+    color: #051F20; /* primary-dark */
     line-height: 1.8;
     letter-spacing: 0.01em;
     min-height: 100vh;
@@ -29,7 +30,7 @@
     font-weight: 400;
     letter-spacing: 0.04em;
     line-height: 1.2;
-    color: #392E26; /* espresso */
+    color: #051F20; /* primary-dark */
   }
 
   h1 {
@@ -65,7 +66,7 @@
     line-height: 1.9;
     letter-spacing: 0.01em;
     font-size: 1.1rem;
-    color: #6B5B4D; /* mocha */
+    color: #235347; /* card-bg */
   }
 
   /* Minimalist Scrollbar */
@@ -74,94 +75,94 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #FCF8F0;
+    background: #DAF1DE; /* soft-bg */
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #B5BDAC; /* pistachio */
+    background: #8EB69B; /* cta-green */
     border-radius: 6px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #B6A593; /* wheat */
+    background: #235347; /* card-bg */
   }
 
   /* Selection */
   ::selection {
-    background: #B5BDAC;
-    color: #392E26;
+    background: #8EB69B;
+    color: #051F20;
   }
 
   ::-moz-selection {
-    background: #B5BDAC;
-    color: #392E26;
+    background: #8EB69B;
+    color: #051F20;
   }
 }
 
 @layer components {
   /* ULTRA PREMIUM Button Styles */
   .btn-primary {
-    @apply bg-gradient-to-r from-gold via-amber-400 to-deep-gold text-black px-12 py-6 rounded-none font-bold transition-all duration-700 ease-out hover:from-amber-400 hover:via-gold hover:to-amber-400 hover:shadow-2xl hover:scale-110 border-3 border-gold hover:border-amber-400 tracking-widest text-lg uppercase font-cinzel;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    @apply bg-gradient-to-r from-cta-green via-card-bg to-primary-dark text-primary-dark px-12 py-6 rounded-none font-bold transition-all duration-700 ease-out hover:from-card-bg hover:via-cta-green hover:to-card-bg hover:shadow-2xl hover:scale-110 border-3 border-cta-green hover:border-card-bg tracking-widest text-lg uppercase font-cinzel;
+    box-shadow: 0 10px 30px rgba(35, 83, 71, 0.4);
   }
   
   .btn-secondary {
-    @apply bg-transparent text-white px-12 py-6 rounded-none font-bold transition-all duration-700 ease-out border-3 border-white hover:bg-white hover:text-black hover:shadow-2xl hover:scale-110 tracking-widest text-lg uppercase font-cinzel;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    @apply bg-transparent text-primary-dark px-12 py-6 rounded-none font-bold transition-all duration-700 ease-out border-3 border-primary-dark hover:bg-primary-dark hover:text-soft-bg hover:shadow-2xl hover:scale-110 tracking-widest text-lg uppercase font-cinzel;
+    box-shadow: 0 10px 30px rgba(5, 31, 32, 0.2);
   }
 
   .btn-outline {
-    @apply bg-transparent text-gold px-12 py-6 rounded-none font-bold transition-all duration-700 ease-out border-3 border-gold hover:bg-gold hover:text-black hover:shadow-2xl hover:scale-110 tracking-widest text-lg uppercase font-cinzel;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    @apply bg-transparent text-cta-green px-12 py-6 rounded-none font-bold transition-all duration-700 ease-out border-3 border-cta-green hover:bg-cta-green hover:text-primary-dark hover:shadow-2xl hover:scale-110 tracking-widest text-lg uppercase font-cinzel;
+    box-shadow: 0 10px 30px rgba(142, 182, 155, 0.3);
   }
   
   /* ROYAL Card Styles */
   .card-luxury {
-    @apply bg-gradient-to-br from-black via-gray-900 to-black rounded-none shadow-2xl hover:shadow-2xl transition-all duration-1000 ease-out border-2 border-gold/30 hover:border-gold/80 backdrop-blur-2xl;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    @apply bg-gradient-to-br from-primary-dark via-secondary-bg to-primary-dark rounded-none shadow-2xl hover:shadow-2xl transition-all duration-1000 ease-out border-2 border-cta-green/30 hover:border-cta-green/80 backdrop-blur-2xl;
+    box-shadow: 0 25px 50px -12px rgba(5, 31, 32, 0.8);
   }
 
   .card-premium {
-    @apply bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-none shadow-2xl hover:shadow-2xl transition-all duration-1000 ease-out border-2 border-bronze/40 hover:border-bronze/90 backdrop-blur-3xl;
-    box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.9);
+    @apply bg-gradient-to-br from-secondary-bg via-card-bg to-secondary-bg rounded-none shadow-2xl hover:shadow-2xl transition-all duration-1000 ease-out border-2 border-cta-green/40 hover:border-cta-green/90 backdrop-blur-3xl;
+    box-shadow: 0 35px 70px -15px rgba(22, 56, 50, 0.9);
   }
   
   /* ROYAL Text Styles */
   .text-gradient {
-    @apply bg-gradient-to-r from-gold via-amber-400 via-yellow-300 to-gold bg-clip-text text-transparent;
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    @apply bg-gradient-to-r from-cta-green via-card-bg via-soft-bg to-cta-green bg-clip-text text-transparent;
+    text-shadow: 0 0 30px rgba(142, 182, 155, 0.5);
   }
 
   .text-royal {
-    @apply bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    @apply bg-gradient-to-r from-soft-bg via-secondary-bg to-soft-bg bg-clip-text text-transparent;
+    text-shadow: 0 0 20px rgba(218, 241, 222, 0.3);
   }
 
   .text-ultra-premium {
-    @apply bg-gradient-to-r from-gold via-amber-400 via-yellow-300 via-gold to-amber-400 bg-clip-text text-transparent;
-    text-shadow: 0 0 40px rgba(212, 175, 55, 0.7);
+    @apply bg-gradient-to-r from-cta-green via-card-bg via-soft-bg via-cta-green to-card-bg bg-clip-text text-transparent;
+    text-shadow: 0 0 40px rgba(142, 182, 155, 0.7);
   }
   
   /* ULTRA Glass Effects */
   .glass-effect {
-    @apply bg-black/60 backdrop-blur-3xl border-2 border-gold/40 shadow-2xl;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.2);
+    @apply bg-primary-dark/60 backdrop-blur-3xl border-2 border-cta-green/40 shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(5, 31, 32, 0.8), 0 0 30px rgba(142, 182, 155, 0.2);
   }
 
   .glass-premium {
-    @apply bg-black/80 backdrop-blur-3xl border-2 border-bronze/50 shadow-2xl;
-    box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(205, 127, 50, 0.3);
+    @apply bg-primary-dark/80 backdrop-blur-3xl border-2 border-cta-green/50 shadow-2xl;
+    box-shadow: 0 35px 70px -15px rgba(5, 31, 32, 0.9), 0 0 40px rgba(35, 83, 71, 0.3);
   }
 
   /* ROYAL Navigation Styles */
   .nav-link {
-    @apply text-white hover:text-gold transition-all duration-500 ease-out relative font-bold tracking-widest uppercase text-lg;
+    @apply text-primary-dark hover:text-cta-green transition-all duration-500 ease-out relative font-bold tracking-widest uppercase text-lg;
     font-family: 'Cinzel', serif;
   }
 
   .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-gold via-amber-400 to-gold transition-all duration-700 ease-out;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-cta-green via-card-bg to-cta-green transition-all duration-700 ease-out;
+    box-shadow: 0 0 20px rgba(142, 182, 155, 0.8);
   }
 
   .nav-link:hover::after {
@@ -170,19 +171,19 @@
 
   /* ULTRA Form Styles */
   .input-luxury {
-    @apply bg-black/70 border-2 border-gold/40 text-white placeholder-white/60 focus:border-gold focus:ring-4 focus:ring-gold/30 transition-all duration-500 ease-out backdrop-blur-2xl px-6 py-4 text-lg;
+    @apply bg-primary-dark/70 border-2 border-cta-green/40 text-soft-bg placeholder-soft-bg/60 focus:border-cta-green focus:ring-4 focus:ring-cta-green/30 transition-all duration-500 ease-out backdrop-blur-2xl px-6 py-4 text-lg;
     font-family: 'Libre Baskerville', serif;
   }
 
   .input-luxury:focus {
     @apply outline-none;
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 40px rgba(142, 182, 155, 0.6);
   }
 
   /* ROYAL Product Card Styles */
   .product-card {
-    @apply bg-gradient-to-br from-black via-gray-900 to-black rounded-none shadow-2xl hover:shadow-2xl transition-all duration-1000 ease-out border-2 border-gold/30 hover:border-gold/80 group overflow-hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    @apply bg-gradient-to-br from-primary-dark via-secondary-bg to-primary-dark rounded-none shadow-2xl hover:shadow-2xl transition-all duration-1000 ease-out border-2 border-cta-green/30 hover:border-cta-green/80 group overflow-hidden;
+    box-shadow: 0 25px 50px -12px rgba(5, 31, 32, 0.8);
   }
 
   .product-card:hover {
@@ -195,12 +196,12 @@
 
   /* ULTRA Hero Section */
   .hero-gradient {
-    @apply bg-gradient-to-br from-black via-gray-900 via-black to-gray-900;
+    @apply bg-gradient-to-br from-primary-dark via-secondary-bg via-card-bg to-secondary-bg;
   }
 
   .hero-text {
     @apply font-cinzel font-black text-7xl md:text-8xl lg:text-9xl text-ultra-premium leading-none tracking-widest;
-    text-shadow: 0 0 50px rgba(212, 175, 55, 0.8);
+    text-shadow: 0 0 50px rgba(142, 182, 155, 0.8);
   }
 
   /* ROYAL Section Spacing */
@@ -214,13 +215,13 @@
 
   /* ULTRA Loading Animation */
   .loading-luxury {
-    @apply animate-pulse-slow bg-gradient-to-r from-gold/30 via-amber-400/30 to-gold/30;
+    @apply animate-pulse-slow bg-gradient-to-r from-cta-green/30 via-card-bg/30 to-cta-green/30;
   }
 
   /* ROYAL Badge Styles */
   .badge-premium {
-    @apply bg-gradient-to-r from-gold via-amber-400 to-gold text-black px-6 py-3 text-lg font-black tracking-widest uppercase font-cinzel;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+    @apply bg-gradient-to-r from-cta-green via-card-bg to-cta-green text-primary-dark px-6 py-3 text-lg font-black tracking-widest uppercase font-cinzel;
+    box-shadow: 0 10px 30px rgba(142, 182, 155, 0.6);
   }
 
   .badge-limited {
@@ -230,81 +231,81 @@
 
   /* ULTRA Footer Styles */
   .footer-gradient {
-    @apply bg-gradient-to-t from-black via-gray-900 to-black;
+    @apply bg-gradient-to-t from-primary-dark via-secondary-bg to-primary-dark;
   }
 
   /* ROYAL Newsletter Modal */
   .newsletter-modal {
-    @apply bg-gradient-to-br from-black/95 via-gray-900/95 to-black/95 backdrop-blur-3xl border-2 border-gold/50 shadow-2xl;
-    box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.9);
+    @apply bg-gradient-to-br from-primary-dark/95 via-secondary-bg/95 to-primary-dark/95 backdrop-blur-3xl border-2 border-cta-green/50 shadow-2xl;
+    box-shadow: 0 35px 70px -15px rgba(5, 31, 32, 0.9);
   }
 
   /* ULTRA Social Media Icons */
   .social-icon {
-    @apply text-white hover:text-gold transition-all duration-500 ease-out hover:scale-125;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    @apply text-cta-green hover:text-primary-dark transition-all duration-500 ease-out hover:scale-125;
+    filter: drop-shadow(0 0 10px rgba(142, 182, 155, 0.5));
   }
 
   /* ROYAL Price Display */
   .price-luxury {
     @apply font-cinzel text-4xl font-black text-gradient tracking-widest;
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+    text-shadow: 0 0 30px rgba(142, 182, 155, 0.6);
   }
 
   /* ULTRA Quantity Controls */
   .quantity-control {
-    @apply bg-black/70 border-2 border-gold/40 text-white hover:bg-gold hover:text-black transition-all duration-500 ease-out px-4 py-2 text-lg;
+    @apply bg-primary-dark/70 border-2 border-cta-green/40 text-soft-bg hover:bg-cta-green hover:text-primary-dark transition-all duration-500 ease-out px-4 py-2 text-lg;
     font-family: 'Libre Baskerville', serif;
   }
 
   /* ROYAL Search Bar */
   .search-luxury {
-    @apply bg-black/70 border-2 border-gold/40 text-white placeholder-white/60 focus:border-gold focus:ring-4 focus:ring-gold/30 transition-all duration-500 ease-out backdrop-blur-2xl px-6 py-4 text-lg;
+    @apply bg-primary-dark/70 border-2 border-cta-green/40 text-soft-bg placeholder-soft-bg/60 focus:border-cta-green focus:ring-4 focus:ring-cta-green/30 transition-all duration-500 ease-out backdrop-blur-2xl px-6 py-4 text-lg;
     font-family: 'Libre Baskerville', serif;
   }
 
   /* ULTRA Dropdown */
   .dropdown-luxury {
-    @apply bg-black/95 backdrop-blur-3xl border-2 border-gold/40 shadow-2xl;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    @apply bg-primary-dark/95 backdrop-blur-3xl border-2 border-cta-green/40 shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(5, 31, 32, 0.8);
   }
 
   /* ROYAL Toast Notifications */
   .toast-success {
-    @apply bg-gradient-to-r from-emerald-600 to-emerald-800 text-white border-2 border-gold/50 shadow-2xl;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    @apply bg-gradient-to-r from-emerald-600 to-emerald-800 text-white border-2 border-cta-green/50 shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(5, 31, 32, 0.8);
   }
 
   .toast-error {
-    @apply bg-gradient-to-r from-red-600 to-red-800 text-white border-2 border-gold/50 shadow-2xl;
+    @apply bg-gradient-to-r from-red-600 to-red-800 text-white border-2 border-cta-green/50 shadow-2xl;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
   }
 
   /* ULTRA Progress Bar */
   .progress-luxury {
-    @apply bg-black/70 border-2 border-gold/40;
+    @apply bg-primary-dark/70 border-2 border-cta-green/40;
   }
 
   .progress-fill {
-    @apply bg-gradient-to-r from-gold via-amber-400 to-gold;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    @apply bg-gradient-to-r from-cta-green via-card-bg to-cta-green;
+    box-shadow: 0 0 20px rgba(142, 182, 155, 0.6);
   }
 
   /* ROYAL Pagination */
   .pagination-luxury {
-    @apply bg-black/70 border-2 border-gold/40 text-white hover:bg-gold hover:text-black transition-all duration-500 ease-out px-6 py-3 text-lg;
+    @apply bg-primary-dark/70 border-2 border-cta-green/40 text-soft-bg hover:bg-cta-green hover:text-primary-dark transition-all duration-500 ease-out px-6 py-3 text-lg;
     font-family: 'Libre Baskerville', serif;
   }
 
   .pagination-active {
-    @apply bg-gradient-to-r from-gold via-amber-400 to-gold text-black font-bold;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+    @apply bg-gradient-to-r from-cta-green via-card-bg to-cta-green text-primary-dark font-bold;
+    box-shadow: 0 10px 30px rgba(142, 182, 155, 0.6);
   }
 
   /* ULTRA ROYAL Brand Name */
   .brand-name {
     @apply font-cinzel font-black text-5xl md:text-6xl lg:text-7xl text-ultra-premium tracking-widest uppercase;
-    text-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
+    text-shadow: 0 0 40px rgba(142, 182, 155, 0.8);
     letter-spacing: 0.2em;
   }
 
@@ -387,5 +388,10 @@
   /* Minimalist Footer */
   .footer-mint {
     @apply bg-gradient-to-t from-mint-glass-strong via-mint-glass to-white text-black py-16 px-8;
+  }
+
+  /* Bonheur Royale Font Utility */
+  .font-bonheur-royale {
+    font-family: 'Bonheur Royale', serif;
   }
 }

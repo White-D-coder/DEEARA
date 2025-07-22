@@ -34,11 +34,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`border-b border-bisque/70 shadow-soft sticky top-0 z-50 transition-all duration-300 ${
-        typeof window !== "undefined" && window.scrollY > 10
-          ? "bg-sugar/100 backdrop-blur-md"
-          : "bg-sugar"
-      }`}
+      className={`border-b border-bisque/70 shadow-soft sticky top-0 z-50 bg-sugar`}
       onScrollCapture={() => {}} // dummy to avoid React warning
     >
       <div className="px-8">
@@ -75,7 +71,7 @@ const Navbar = () => {
                 {!showSearch ? (
                   <button
                     type="button"
-                    className="p-2 text-wheat hover:text-espresso transition-colors"
+                    className="p-2 text-card-bg hover:text-primary-dark transition-colors"
                     onClick={() => setShowSearch(true)}
                     aria-label="Open search"
                   >
@@ -97,7 +93,7 @@ const Navbar = () => {
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onBlur={() => setShowSearch(false)}
-                      className="w-full pl-12 pr-4 py-3 bg-bisque/60 border border-wheat/40 rounded-glass font-sans text-mocha placeholder-wheat focus:outline-none focus:ring-2 focus:ring-pistachio focus:border-pistachio transition"
+                      className="w-full pl-12 pr-4 py-3 bg-card-bg/60 border border-card-bg/40 rounded-glass font-sans text-primary-dark placeholder-card-bg focus:outline-none focus:ring-2 focus:ring-cta-green focus:border-cta-green transition"
                     />
                     <Search className="absolute left-4 top-3 h-5 w-5 text-pistachio" />
                   </motion.form>
@@ -107,11 +103,11 @@ const Navbar = () => {
   
             </div>
             {/* Wishlist */}
-            <Link to="/wishlist" className="p-2 text-wheat hover:text-pistachio transition-colors relative">
+            <Link to="/wishlist" className="p-2 text-card-bg hover:text-cta-green transition-colors relative">
               <Heart className="h-5 w-5" />
             </Link>
             {/* Cart */}
-            <Link to="/cart" className="p-2 text-wheat hover:text-pistachio transition-colors relative">
+            <Link to="/cart" className="p-2 text-card-bg hover:text-cta-green transition-colors relative">
               <ShoppingBag className="h-5 w-5" />
               {getCartCount() > 0 && (
                 <span className="absolute -top-1 -right-1 bg-pistachio text-espresso text-xs rounded-full h-5 w-5 flex items-center justify-center shadow-soft">
@@ -122,7 +118,7 @@ const Navbar = () => {
             {/* User Menu */}
             {user ? (
               <>
-                <button className="p-2 text-wheat hover:text-pistachio transition-colors" onClick={() => setShowProfile(true)}>
+                <button className="p-2 text-card-bg hover:text-primary-dark transition-colors" onClick={() => setShowProfile(true)}>
                   <User className="h-5 w-5" />
                 </button>
                 <AnimatePresence>
@@ -160,7 +156,7 @@ const Navbar = () => {
                           <div className="text-xl font-times text-mocha ">
                             {user.user_metadata?.full_name || 'User'}
                           </div>
-                          <div className="text-sm text-wheat mb-4 style={{ fontFamily: 'Alumni Sans Pinstripe, sans-serif' }}">{user.email}</div>
+                          <div className="text-sm text-card-bg mb-4 style={{ fontFamily: 'Alumni Sans Pinstripe, sans-serif' }}">{user.email}</div>
                         </div>
                         <button className="block w-full text-left px-4 py-3 text-base text-pistachio hover:bg-bisque/40 hover:text-espresso transition-colors text-optima rounded-xl mt-8">My Orders
                         </button>
@@ -176,14 +172,14 @@ const Navbar = () => {
                 </AnimatePresence>
               </>
             ) : (
-              <Link to="/login" className="p-2 text-wheat hover:text-pistachio transition-colors">
+              <Link to="/login" className="p-2 text-card-bg hover:text-primary-dark transition-colors">
                 <User className="h-5 w-5" />
               </Link>
             )}
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-wheat hover:text-pistachio transition-colors"
+              className="md:hidden p-2 text-card-bg hover:text-primary-dark transition-colors"
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -242,7 +238,7 @@ const Navbar = () => {
                   placeholder="Search for exclusive pieces..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-bisque/60 border border-wheat/40 rounded-glass font-sans text-mocha placeholder-wheat focus:outline-none focus:ring-2 focus:ring-pistachio focus:border-pistachio transition"
+                  className="w-full pl-12 pr-4 py-3 bg-card-bg/60 border border-card-bg/40 rounded-glass font-sans text-primary-dark placeholder-card-bg focus:outline-none focus:ring-2 focus:ring-cta-green focus:border-cta-green transition"
                 />
                 <Search className="absolute left-4 top-3 h-5 w-5 text-pistachio" />
               </form>
@@ -288,19 +284,19 @@ const Navbar = () => {
                   Contact
                 </Link>
                 <div className="flex items-center gap-4 pt-4 border-t border-bisque/30">
-                  <button className="p-2 text-wheat hover:text-pistachio transition-colors">
+                  <button className="p-2 text-card-bg hover:text-cta-green transition-colors">
                     <Globe className="h-5 w-5" />
                   </button>
-                  <button className="p-2 text-wheat hover:text-pistachio transition-colors">
+                  <button className="p-2 text-card-bg hover:text-cta-green transition-colors">
                     <DollarSign className="h-5 w-5" />
                   </button>
-                  <Link to="/wishlist" className="p-2 text-wheat hover:text-pistachio transition-colors">
+                  <Link to="/wishlist" className="p-2 text-card-bg hover:text-cta-green transition-colors">
                     <Heart className="h-5 w-5" />
                   </Link>
-                  <Link to="/cart" className="p-2 text-wheat hover:text-pistachio transition-colors">
+                  <Link to="/cart" className="p-2 text-card-bg hover:text-cta-green transition-colors">
                     <ShoppingBag className="h-5 w-5" />
                   </Link>
-                  <Link to="/login" className="p-2 text-wheat hover:text-pistachio transition-colors">
+                  <Link to="/login" className="p-2 text-card-bg hover:text-primary-dark transition-colors">
                     <User className="h-5 w-5" />
                   </Link>
                 </div>
