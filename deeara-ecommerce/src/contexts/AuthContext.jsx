@@ -71,6 +71,24 @@ export const AuthProvider = ({ children }) => {
     return { error }
   }
 
+  // Send password reset email (Supabase will send a 6-digit OTP link to the email)
+  const sendPasswordResetEmail = async (email) => {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin + '/reset-password',
+    })
+    return { error }
+  }
+
+  // Sign in with OTP (magic link or 6-digit code)
+  const signInWithOtp = async (email, otp) => {
+    const { error } = await supabase.auth.verifyOtp({
+      email,
+      token: otp,
+      type: 'email',
+    })
+    return { error }
+  }
+
   const value = {
     user,
     session,
@@ -79,6 +97,8 @@ export const AuthProvider = ({ children }) => {
     signUp,
     signOut,
     signInWithGoogle,
+    sendPasswordResetEmail,
+    signInWithOtp,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

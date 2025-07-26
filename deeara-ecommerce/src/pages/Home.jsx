@@ -25,6 +25,13 @@ const Home = () => {
     setLoading(false)
   }
 
+  // GlassSection: Elegant Gradient Glass effect
+  const GlassSection = ({ children }) => (
+    <div className="bg-gradient-to-br from-white/40 via-white/20 to-emerald-100/30 backdrop-blur-lg rounded-2xl border border-emerald-200/30 shadow-xl">
+      {children}
+    </div>
+  )
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Silk Background */}
@@ -43,7 +50,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
             >
               <h1
-                className="text-xl text-sugar md:text-7xl font-bold mb-6"
+                className="text-6xl sm:text-5xl md:text-7xl text-sugar font-bold mb-6"
                 style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, letterSpacing: '0.1em' }}
               >
  
@@ -260,34 +267,26 @@ const Home = () => {
             </motion.div>
           </div>
         </section>
-        
-        {/* Flowing Menu Section */}
-        <section className="py-1 bg-emerald-900 mt-0">
-          <FlowingMenu 
-              items={[
-                {
-                  link: "/products",
-                  text: "Collection",
-                  image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                },
-                {
-                  link: "/products?category=limited-edition",
-                  text: "Limited Edition",
-                  image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                },
-                {
-                  link: "/products?category=new-arrivals",
-                  text: "New Arrivals",
-                  image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                },
-                {
-                  link: "/contact",
-                  text: "Contact",
-                  image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                }
-              ]} 
-            />
-          </section>
+      
+   {/* Flowing Menu Section */}
+<section className=''>
+    <GlassSection>
+      <FlowingMenu 
+                items={[
+                  {
+                    link: "/products?category=limited-edition",
+                    text: "Limited Edition",
+                    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  },
+                  {
+                    link: "/products?category=new-arrivals",
+                    text: "New Arrivals",
+                    image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  },
+                ]} 
+              />
+          </GlassSection>
+  </section>
 
             
 

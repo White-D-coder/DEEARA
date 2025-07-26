@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Mail, Lock, Eye, EyeOff, Crown } from 'lucide-react'
@@ -14,8 +14,24 @@ const Login = () => {
     fullName: '',
   })
   const [loading, setLoading] = useState(false)
-  const { signIn, signUp, signInWithGoogle } = useAuth()
+  const { signIn, signUp, signInWithGoogle, sendPasswordResetEmail, signInWithOtp } = useAuth()
   const navigate = useNavigate()
+
+  // Forgot password/OTP state
+  const [showForgot, setShowForgot] = useState(false)
+  const [forgotEmail, setForgotEmail] = useState('')
+  const [forgotLoading, setForgotLoading] = useState(false)
+  const [forgotMsg, setForgotMsg] = useState('')
+  const [otp, setOtp] = useState('')
+  const [otpLoading, setOtpLoading] = useState(false)
+  const [otpMsg, setOtpMsg] = useState('')
+
+  useEffect(() => {
+    // If user lands on /reset-password with access_token in URL, redirect to ResetPassword page
+    if (window.location.pathname === '/reset-password') {
+      // Optionally, you can handle this in your router
+    }
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -143,6 +159,18 @@ const Login = () => {
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
+              {/* Forgot password link */}
+              {!isSignUp && (
+                <div className="mt-2 text-right">
+                  <button
+                    type="button"
+                    className="text-sm text-cta-green hover:underline font-semibold"
+                    onClick={() => setShowForgot(true)}
+                  >
+                    Forgot password?
+                  </button>
+                </div>
+              )}
             </div>
           </div>
           <div>

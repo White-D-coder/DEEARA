@@ -135,7 +135,7 @@ const ProductDetail = () => {
               <img
                 src={product.images[selectedImage] || product.images[0] || 'https://via.placeholder.com/600x700'}
                 alt={product.name}
-                className="w-full h-[600px] object-cover"
+                className="w-full h-64 sm:h-96 lg:h-[600px] object-cover"
                 style={{ background: '#FCF8F0' }}
               />
               {/* Badges */}
@@ -153,12 +153,12 @@ const ProductDetail = () => {
 
             {/* Thumbnail Images */}
             {product.images && product.images.length > 1 && (
-              <div className="flex space-x-4">
-                {product.images.map((image, index) => (
+              <div className="flex space-x-2 sm:space-x-4 overflow-x-auto">
+                {(window.innerWidth < 640 ? product.images.slice(0, 2) : product.images).map((image, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedImage(index)}
-                    className={`w-20 h-20 rounded-2xl overflow-hidden border-2 transition-all duration-200 ${
+                    className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 transition-all duration-200 ${
                       selectedImage === index
                         ? 'border-cta-green shadow-lg'
                         : 'border-card-bg hover:border-cta-green'
