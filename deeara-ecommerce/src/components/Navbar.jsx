@@ -6,7 +6,7 @@ import { useAuth } from '../contexts/AuthContext'
 import { useCart } from '../contexts/CartContext'
 import { useCurrency } from '../contexts/CurrencyContext'
 
-const Navbar = () => {
+const Navbar = ({ isScrolled = false, navbarOpacity = 0 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearch, setShowSearch] = useState(false)
@@ -34,14 +34,21 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`border-b border-bisque/70 shadow-soft sticky top-0 z-50 bg-sugar`}
+      className="border-b border-bisque/70 shadow-soft sticky top-0 z-50 transition-all duration-300"
+      style={{
+        backgroundColor: `rgba(255, 255, 255, ${navbarOpacity})`,
+        backdropFilter: navbarOpacity > 0 ? 'blur(10px)' : 'none'
+      }}
       onScrollCapture={() => {}} // dummy to avoid React warning
     >
+
       <div className="px-8">
         <div className="flex justify-between items-left h-24">
           {/* Menu Button (Desktop) */}
           <button
-            className="hidden md:flex items-center justify-center p-2  text-mocha hover:text-pistachio transition-colors"
+            className={`hidden md:flex items-center justify-center p-2 transition-colors ${
+              isScrolled ? 'text-gray-800 hover:text-gray-600' : 'text-white hover:text-gray-200'
+            }`}
             onClick={() => setIsMenuOpen((v) => !v)}
             aria-label="Open menu"
             type="button"
@@ -49,7 +56,9 @@ const Navbar = () => {
             <svg className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <span className="ml-2  text-xl font-times text-mocha tracking-wide" style={{ fontFamily: 'Alumni Sans Pinstripe, sans-serif' }}>Menu</span>
+            <span className={`ml-2 text-xl font-times tracking-wide ${
+              isScrolled ? 'text-gray-800' : 'text-white'
+            }`} style={{ fontFamily: 'Alumni Sans Pinstripe, sans-serif' }}>Menu</span>
           </button>
           {/* Logo - hide when menu open */}
           {!isMenuOpen && (
@@ -71,7 +80,9 @@ const Navbar = () => {
                 {!showSearch ? (
                   <button
                     type="button"
-                    className="p-2 text-card-bg hover:text-primary-dark transition-colors"
+                    className={`p-2 transition-colors ${
+                      isScrolled ? 'text-gray-800 hover:text-gray-600' : 'text-white hover:text-gray-200'
+                    }`}
                     onClick={() => setShowSearch(true)}
                     aria-label="Open search"
                   >
@@ -103,11 +114,15 @@ const Navbar = () => {
   
             </div>
             {/* Wishlist */}
-            <Link to="/wishlist" className="p-2 text-card-bg hover:text-cta-green transition-colors relative">
+            <Link to="/wishlist" className={`p-2 transition-colors relative ${
+              isScrolled ? 'text-gray-800 hover:text-gray-600' : 'text-white hover:text-gray-200'
+            }`}>
               <Heart className="h-5 w-5" />
             </Link>
             {/* Cart */}
-            <Link to="/cart" className="p-2 text-card-bg hover:text-cta-green transition-colors relative">
+            <Link to="/cart" className={`p-2 transition-colors relative ${
+              isScrolled ? 'text-gray-800 hover:text-gray-600' : 'text-white hover:text-gray-200'
+            }`}>
               <ShoppingBag className="h-5 w-5" />
               {getCartCount() > 0 && (
                 <span className="absolute -top-1 -right-1 bg-pistachio text-espresso text-xs rounded-full h-5 w-5 flex items-center justify-center shadow-soft">
@@ -118,7 +133,9 @@ const Navbar = () => {
             {/* User Menu */}
             {user ? (
               <>
-                <button className="p-2 text-card-bg hover:text-primary-dark transition-colors" onClick={() => setShowProfile(true)}>
+                <button className={`p-2 transition-colors ${
+                  isScrolled ? 'text-gray-800 hover:text-gray-600' : 'text-white hover:text-gray-200'
+                }`} onClick={() => setShowProfile(true)}>
                   <User className="h-5 w-5" />
                 </button>
                 <AnimatePresence>
@@ -158,8 +175,9 @@ const Navbar = () => {
                           </div>
                           <div className="text-sm text-card-bg mb-4 style={{ fontFamily: 'Alumni Sans Pinstripe, sans-serif' }}">{user.email}</div>
                         </div>
-                        <button className="block w-full text-left px-4 py-3 text-base text-pistachio hover:bg-bisque/40 hover:text-espresso transition-colors text-optima rounded-xl mt-8">My Orders
-                        </button>
+                        <Link to="/my-orders" className="block w-full text-left px-4 py-3 text-base text-pistachio hover:bg-bisque/40 hover:text-espresso transition-colors text-optima rounded-xl mt-8">
+                          My Orders
+                        </Link>
                         <button
                           onClick={() => { handleSignOut(); setShowProfile(false) }}
                           className="block w-full text-left px-4 py-3 text-base text-pistachio hover:bg-bisque/40 hover:text-espresso transition-colors rounded-xl font-bold mt-8"
@@ -172,14 +190,18 @@ const Navbar = () => {
                 </AnimatePresence>
               </>
             ) : (
-              <Link to="/login" className="p-2 text-card-bg hover:text-primary-dark transition-colors">
+              <Link to="/login" className={`p-2 transition-colors ${
+                isScrolled ? 'text-gray-800 hover:text-gray-600' : 'text-white hover:text-gray-200'
+              }`}>
                 <User className="h-5 w-5" />
               </Link>
             )}
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-card-bg hover:text-primary-dark transition-colors"
+              className={`md:hidden p-2 transition-colors ${
+                isScrolled ? 'text-gray-800 hover:text-gray-600' : 'text-white hover:text-gray-200'
+              }`}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>

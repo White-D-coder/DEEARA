@@ -52,12 +52,16 @@ export interface WishlistItem {
 export interface Order {
   id: string
   user_id: string
-  status: 'pending' | 'confirmed' | 'packed' | 'shipped' | 'delivered'
+  status: 'pending' | 'confirmed' | 'packed' | 'shipped' | 'delivered' | 'cancelled'
+  payment_status: 'pending' | 'processing' | 'completed' | 'failed' | 'refunded'
+  tracking_id?: string
+  delivery_partner?: string
   total_amount: number
   currency: string
   shipping_address: any
   billing_address: any
   items: any[]
+  payment_intent_id?: string
   created_at: string
   updated_at: string
 }

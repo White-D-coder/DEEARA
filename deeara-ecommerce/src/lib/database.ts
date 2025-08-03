@@ -263,6 +263,8 @@ export const createOrder = async (
         items,
         shipping_address: shippingAddress,
         billing_address: billingAddress,
+        payment_status: 'pending',
+        status: 'pending'
       })
       .select()
       .single()
